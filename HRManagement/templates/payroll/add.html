@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payroll</title>
+</head>
+<body>
+
+<h1>Add Payroll</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <label>Employee</label>
+
+    <select name="employee">
+
+        {% for employee in employees %}
+        <option value="{{ employee.id }}">
+            {{ employee.name }}
+        </option>
+        {% endfor %}
+
+    </select>
+
+    <br><br>
+
+    <label>Basic Salary</label>
+    <input type="number" name="basic_salary">
+
+    <br><br>
+
+    <label>Bonus</label>
+    <input type="number" name="bonus">
+
+    <br><br>
+
+    <label>Deductions</label>
+    <input type="number" name="deductions">
+
+    <br><br>
+
+    <button type="submit">
+        Calculate & Save
+    </button>
+
+</form>
+
+</body>
+</html>
